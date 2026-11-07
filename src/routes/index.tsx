@@ -1,23 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
+import { HomePage } from "@/components/rofika-site";
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+const shareImage = "https://mudtzlkzbgckaeyjxkkd.supabase.co/storage/v1/object/public/rofika-media/classic-island-kitchen.jpg";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Rofika Quality Kitchens | Thoughtful Kitchen Design in Pretoria" },
+      { name: "description", content: "Discover custom kitchen design, cabinetry and considered home interiors by Rofika Quality Kitchens in Pretoria, South Africa." },
+      { property: "og:title", content: "Rofika Quality Kitchens | Thoughtful Kitchen Design in Pretoria" },
+      { property: "og:description", content: "Thoughtful kitchen design, considered cabinetry and interior renovations for the way you really live." },
+      { property: "og:image", content: shareImage },
+      { name: "twitter:title", content: "Rofika Quality Kitchens | Thoughtful Kitchen Design in Pretoria" },
+      { name: "twitter:description", content: "Thoughtful kitchen design and considered home interiors in Pretoria." },
+      { name: "twitter:image", content: shareImage },
+    ],
+  }),
+  component: HomePage,
+});

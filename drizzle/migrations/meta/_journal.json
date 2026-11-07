@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794083792635,
+      "tag": "0000_rofika_public_media_access",
+      "breakpoints": true
+    }
+  ]
+}

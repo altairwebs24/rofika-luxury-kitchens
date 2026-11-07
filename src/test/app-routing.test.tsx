@@ -14,4 +14,13 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("matches each of the five Rofika pages", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const paths = ["/", "/projects", "/services", "/about", "/contact"];
+
+    for (const path of paths) {
+      expect(router.matchRoutes(path).at(-1)?.routeId, path).not.toBe(rootRouteId);
+    }
+  });
 });

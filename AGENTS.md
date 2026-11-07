@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+
+- The Rofika public site uses separate TanStack file routes for its five pages and shared site-wide presentation in `src/components/rofika-site.tsx`, keeping navigation and visual identity consistent.
+- Brand photography, video, and the logo are served from the public `rofika-media` Cloud Storage bucket; do not leave duplicate uploaded media in the app repository.
