@@ -6,8 +6,10 @@ import {
   ArrowRight,
   ArrowUpRight,
   Check,
+  Instagram,
   MapPin,
   Menu,
+  Play,
   X,
 } from "lucide-react";
 
@@ -188,13 +190,7 @@ function HomePage() {
           <div className="hero-note"><span className="hero-note__line" /><span>Designed around the details that make a house yours.</span></div>
         </div>
         <div className="home-hero__visual">
-          <figure className="home-hero__image home-hero__film">
-            <video controls preload="metadata" poster={images.filmCover} playsInline aria-label="Watch a completed Rofika kitchen project">
-              <source src={images.film} type="video/mp4" />
-              Your browser does not support the video element.
-            </video>
-            <figcaption><span>Inside a Rofika kitchen</span><span>Pretoria · 00:42</span></figcaption>
-          </figure>
+          <ImageFeature src={images.classic} alt="Cream cabinetry and island in a completed kitchen" label="A Rofika project" title="Gather a little closer." className="home-hero__image" />
           <div className="hero-index"><span>01</span><span className="hero-index__rule" /><span>06</span></div>
         </div>
       </section>
@@ -218,8 +214,8 @@ function HomePage() {
       <section className="services-ribbon">
         <div className="services-ribbon__intro">
           <p className="overline">Considered, from the start</p>
-          <h2>Spaces with a sense of <em>belonging.</em></h2>
-          <Button asChild variant="outline" className="light-button bg-transparent text-cream border-line-light hover:bg-cream hover:text-navy"><Link to="/services">Discover our services <ArrowRight aria-hidden="true" /></Link></Button>
+          <h2>Spaces with a sense<br />of <em>belonging.</em></h2>
+          <Button asChild variant="outline" className="light-button"><Link to="/services">Discover our services <ArrowRight aria-hidden="true" /></Link></Button>
         </div>
         <div className="service-list">
           <Link to="/services" className="service-list__item"><span>01</span><span>Kitchen design & renovation</span><ArrowUpRight aria-hidden="true" /></Link>
@@ -227,6 +223,20 @@ function HomePage() {
           <Link to="/services" className="service-list__item"><span>03</span><span>TV stands & custom furniture</span><ArrowUpRight aria-hidden="true" /></Link>
           <Link to="/services" className="service-list__item"><span>04</span><span>Home interior renovations</span><ArrowUpRight aria-hidden="true" /></Link>
         </div>
+      </section>
+
+      <section className="film-section page-section page-section--wide">
+        <div className="section-heading-row film-section__heading">
+          <SectionIntro eyebrow="Take a closer look" title="A glimpse into" italic="the details." />
+          <p className="film-section__aside">See a Rofika kitchen in motion, from the quiet details to the finished space.</p>
+        </div>
+        <figure className="film-frame">
+          <video controls preload="metadata" poster={images.filmCover} playsInline aria-label="A walkthrough of a completed Rofika kitchen project">
+            <source src={images.film} type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
+          <figcaption className="film-frame__caption"><Play aria-hidden="true" /><span>Inside a completed kitchen</span><span>Rofika · Pretoria</span></figcaption>
+        </figure>
       </section>
 
       <section className="closing-note">
