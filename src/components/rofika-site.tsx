@@ -189,7 +189,7 @@ function HomePage() {
           <p className="home-hero__description">Thoughtful kitchen design, considered cabinetry and interior renovations for the way you really live.</p>
           <div className="hero-actions">
             <Button asChild className="primary-button"><Link to="/projects">Explore our work <ArrowRight aria-hidden="true" /></Link></Button>
-            <Button asChild variant="outline" className="hero-secondary"><Link to="/contact">Book a consultation <ArrowUpRight aria-hidden="true" /></Link></Button>
+            <Button asChild variant="ghost" className="hero-secondary"><Link to="/contact">Book a consultation <ArrowUpRight aria-hidden="true" /></Link></Button>
           </div>
         </div>
       </section>
@@ -214,7 +214,7 @@ function HomePage() {
         <div className="services-ribbon__intro">
           <p className="overline">Considered, from the start</p>
           <h2>Spaces with a sense<br />of <em>belonging.</em></h2>
-          <Button asChild variant="outline" className="light-button"><Link to="/services">Discover our services <ArrowRight aria-hidden="true" /></Link></Button>
+          <Button asChild variant="ghost" className="light-button"><Link to="/services">Discover our services <ArrowRight aria-hidden="true" /></Link></Button>
         </div>
         <div className="service-list">
           <Link to="/services" className="service-list__item"><span>01</span><span>Kitchen design & renovation</span><ArrowUpRight aria-hidden="true" /></Link>

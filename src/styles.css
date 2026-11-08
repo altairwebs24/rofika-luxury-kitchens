@@ -78,11 +78,11 @@
 :root {
   color-scheme: light;
   --radius: 0.25rem;
-  --background: oklch(0.985 0.009 89);
+  --background: oklch(1 0 0);
   --foreground: oklch(0.24 0.038 253);
-  --card: oklch(0.995 0.005 88);
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.24 0.038 253);
-  --popover: oklch(0.995 0.005 88);
+  --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.038 253);
   --primary: oklch(0.28 0.07 254);
   --primary-foreground: oklch(0.98 0.009 90);
@@ -97,8 +97,8 @@
   --border: oklch(0.87 0.02 85);
   --input: oklch(0.88 0.019 85);
   --ring: oklch(0.62 0.085 43);
-  --paper: oklch(0.955 0.016 86);
-  --paper-deep: oklch(0.925 0.025 81);
+  --paper: oklch(1 0 0);
+  --paper-deep: oklch(1 0 0);
   --navy: oklch(0.24 0.055 253);
   --terracotta: oklch(0.65 0.13 41);
   --olive: oklch(0.53 0.064 143);
