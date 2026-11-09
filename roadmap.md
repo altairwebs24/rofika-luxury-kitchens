@@ -6,3 +6,4 @@
 - [x] Build a five-page luxury website using verified business details and supplied media.
 - [x] Verify responsive pages, media loading, and the preview build; run routing tests.
 - [x] Add the ten newly supplied photos with captions to the public Projects gallery.
+- [x] Enlarge and bold contact details and restyle the booking form; send enquiries as a prefilled WhatsApp message.

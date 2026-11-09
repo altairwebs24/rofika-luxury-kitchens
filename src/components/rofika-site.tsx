@@ -5,7 +5,6 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  Check,
   Instagram,
   MapPin,
   Menu,
@@ -317,19 +316,39 @@ function AboutPage() {
 }
 
 function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [serviceError, setServiceError] = useState(false);
 
-  function openEmail(event: FormEvent<HTMLFormElement>) {
+  function openWhatsApp(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = String(formData.get("name") ?? "").trim();
     const email = String(formData.get("email") ?? "").trim();
+    const phone = String(formData.get("phone") ?? "").trim();
+    const services = formData.getAll("service").map(String);
+    const preferredDate = String(formData.get("preferred-date") ?? "").trim();
+    const budget = String(formData.get("budget") ?? "").trim();
+    const area = String(formData.get("area") ?? "").trim();
     const project = String(formData.get("project") ?? "").trim();
-    if (!name || !email || !project) return;
-    const subject = encodeURIComponent(`A Rofika project enquiry from ${name}`);
-    const body = encodeURIComponent(`Hello Rofika,\n\nMy name is ${name}.\nMy email is ${email}.\n\nA little about my project:\n${project}`);
-    window.location.href = `mailto:mapasepaledi@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    if (!name || !email || !phone) return;
+    if (services.length === 0) {
+      setServiceError(true);
+      return;
+    }
+
+    setServiceError(false);
+    const message = [
+      "Hello Rofika, I’d like to request a consultation.",
+      "",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone / WhatsApp: ${phone}`,
+      `Services: ${services.join(", ")}`,
+      preferredDate ? `Preferred date: ${preferredDate}` : "",
+      budget ? `Budget: ${budget}` : "",
+      area ? `Project area: ${area}` : "",
+      project ? `About the project: ${project}` : "",
+    ].filter(Boolean).join("\n");
+    window.location.href = `https://wa.me/27769830373?text=${encodeURIComponent(message)}`;
   }
 
   return (
@@ -340,13 +359,29 @@ function ContactPage() {
       </section>
       <section className="contact-details page-section page-section--wide">
         <div className="contact-form-wrap">
-          <p className="overline">A note to start</p><h2>What are you <em>dreaming of?</em></h2>
-          <form className="contact-form" onSubmit={openEmail}>
-            <label htmlFor="contact-name">Your name</label><input id="contact-name" name="name" placeholder="Name" autoComplete="name" required />
-            <label htmlFor="contact-email">Email address</label><input id="contact-email" name="email" type="email" placeholder="you@example.com" autoComplete="email" required />
-            <label htmlFor="contact-project">A little about your project</label><textarea id="contact-project" name="project" rows={4} placeholder="Tell us about the room, the feeling, the idea..." required />
-            <Button type="submit" className="primary-button">Send your enquiry <ArrowUpRight aria-hidden="true" /></Button>
-            {submitted ? <p role="status" className="form-status"><Check aria-hidden="true" /> Your email app should now be ready with your enquiry.</p> : null}
+          <p className="overline">A note to start</p><h2>Book your <em>consultation.</em></h2>
+          <form className="contact-form" onSubmit={openWhatsApp}>
+            <div className="booking-field"><label htmlFor="contact-name">Full name *</label><input id="contact-name" name="name" placeholder="Your name" autoComplete="name" required /></div>
+            <div className="booking-field"><label htmlFor="contact-email">Email *</label><input id="contact-email" name="email" type="email" placeholder="you@email.com" autoComplete="email" required /></div>
+            <div className="booking-field"><label htmlFor="contact-phone">Phone / WhatsApp *</label><input id="contact-phone" name="phone" type="tel" placeholder="+27 ..." autoComplete="tel" required /></div>
+            <fieldset className="booking-services">
+              <legend>Services * <span>(choose all that apply)</span></legend>
+              <div className="booking-services__options">
+                <label><input type="checkbox" name="service" value="Kitchen renovations" onChange={() => setServiceError(false)} /> <span>Kitchens</span></label>
+                <label><input type="checkbox" name="service" value="Built-in cupboards and wardrobes" onChange={() => setServiceError(false)} /> <span>Built-in cupboards &amp; wardrobes</span></label>
+                <label><input type="checkbox" name="service" value="TV stands and custom furniture" onChange={() => setServiceError(false)} /> <span>TV stands &amp; custom furniture</span></label>
+                <label><input type="checkbox" name="service" value="Home interior renovations" onChange={() => setServiceError(false)} /> <span>Home interior renovations</span></label>
+              </div>
+              {serviceError ? <p className="booking-error" role="alert">Please choose at least one service.</p> : null}
+            </fieldset>
+            <div className="booking-field"><label htmlFor="contact-date">Preferred consultation date</label><input id="contact-date" name="preferred-date" type="date" /></div>
+            <div className="booking-field"><label htmlFor="contact-budget">Budget, if known</label><input id="contact-budget" name="budget" placeholder="Your approximate budget" /></div>
+            <div className="booking-field"><label htmlFor="contact-area">Project area</label><input id="contact-area" name="area" placeholder="Suburb or city" autoComplete="address-level2" /></div>
+            <div className="booking-field booking-field--wide"><label htmlFor="contact-project">Tell us about the space</label><textarea id="contact-project" name="project" rows={4} placeholder="Rooms, style, or anything you’d like us to know..." /></div>
+            <div className="booking-submit">
+              <Button type="submit" className="primary-button">Request consultation <ArrowUpRight aria-hidden="true" /></Button>
+              <span>Or <a href="https://wa.me/27769830373?text=Hello%20Rofika%2C%20I%27d%20like%20to%20discuss%20a%20kitchen%20project.">WhatsApp us directly</a></span>
+            </div>
           </form>
         </div>
         <aside className="contact-info">
