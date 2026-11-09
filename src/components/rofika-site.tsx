@@ -24,6 +24,16 @@ const images = {
   sage: `${MEDIA}/sage-kitchen.jpg`,
   modern: `${MEDIA}/modern-island-kitchen.jpg`,
   classic: `${MEDIA}/classic-island-kitchen.jpg`,
+  woodAccent: `${MEDIA}/wood-accent-island.jpg`,
+  whiteWood: `${MEDIA}/white-and-dark-wood-kitchen.jpg`,
+  whiteOvens: `${MEDIA}/white-oven-cabinetry.jpg`,
+  walnutDetails: `${MEDIA}/walnut-kitchen-details.jpg`,
+  centralIsland: `${MEDIA}/central-kitchen-island.jpg`,
+  sageShelves: `${MEDIA}/sage-kitchen-shelves.jpg`,
+  brickHome: `${MEDIA}/brick-home-kitchen.jpg`,
+  applianceWall: `${MEDIA}/integrated-appliance-wall.jpg`,
+  wardrobe: `${MEDIA}/fitted-wardrobe.jpg`,
+  ovenFridge: `${MEDIA}/oven-and-fridge-cabinetry.jpg`,
   film: `${MEDIA}/rofika-project-film.mp4`,
   filmCover: `${MEDIA}/video-cover.jpg`,
 };
@@ -43,6 +53,16 @@ const projects = [
   { image: images.neutral, title: "Light, texture and a little more room", kind: "Kitchen design" },
   { image: images.teal, title: "Colour with confidence", kind: "Kitchen design" },
   { image: images.vanity, title: "The finishing touch, made to fit", kind: "Built-in cabinetry" },
+  { image: images.woodAccent, title: "A warm wood accent, made for gathering", kind: "Kitchen design" },
+  { image: images.whiteWood, title: "Bright cabinetry with a rich timber contrast", kind: "Kitchen design" },
+  { image: images.whiteOvens, title: "A streamlined home for everyday cooking", kind: "Kitchen design" },
+  { image: images.walnutDetails, title: "A thoughtful contrast of white and walnut", kind: "Kitchen design" },
+  { image: images.centralIsland, title: "An island at the heart of the home", kind: "Kitchen design" },
+  { image: images.sageShelves, title: "Sage cabinetry with open-shelf charm", kind: "Kitchen design" },
+  { image: images.brickHome, title: "A welcoming kitchen framed by brick", kind: "Kitchen design" },
+  { image: images.applianceWall, title: "A polished wall of integrated appliances", kind: "Kitchen design" },
+  { image: images.wardrobe, title: "Made-to-measure storage, beautifully fitted", kind: "Built-in cabinetry" },
+  { image: images.ovenFridge, title: "A tailored finish for ovens and refrigeration", kind: "Kitchen design" },
 ];
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
@@ -237,7 +257,7 @@ function ProjectsPage() {
   return (
     <SiteLayout>
       <section className="page-masthead">
-        <p className="overline"><span className="overline__mark" /> Rooms made personal · 01—06</p>
+        <p className="overline"><span className="overline__mark" /> Rooms made personal · 01—16</p>
         <h1>Spaces that tell<br />their <em>own story.</em></h1>
         <p className="page-masthead__copy">A look at completed kitchens, built-in cabinetry and interior details by Rofika Quality Kitchens.</p>
       </section>
